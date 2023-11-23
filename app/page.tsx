@@ -7,22 +7,14 @@ export default async function Home() {
 
 	if (!session) {
 		console.log('no session found!');
+		return (
+			<div>You're to login before going to the dashboard section.</div>
+		);
 	}
 
 	return (
-		<div>
-			<div>
-				Hello{' '}
-				{session && session.user
-					? session?.user.name ?? 'world'
-					: 'world'}
-			</div>
-			<div>
-				<Link href={'/signup'}>goto signup</Link>
-			</div>
-			<div>
-				<Link href={'/login'}>goto login</Link>
-			</div>
+		<div className="flex-grow">
+			Hello {session && session.user ? session?.user.name : 'world'}
 		</div>
 	);
 }

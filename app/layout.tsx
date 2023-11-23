@@ -4,6 +4,7 @@ import { AuthProvider, ThemeProvider } from '@/components/primitives/Provider';
 import { ReactNode } from 'react';
 import Navigation from '@/components/primitives/Navigation';
 import Footer from '@/components/primitives/Footer';
+import { Toaster } from 'react-hot-toast';
 
 export const metadata: Metadata = {
 	title: 'Create Next App',
@@ -25,6 +26,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 								<Footer />
 							</main>
 						</ThemeProvider>
+						<Toaster />
 					</body>
 				</AuthProvider>
 			</html>
