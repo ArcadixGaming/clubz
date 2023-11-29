@@ -1,6 +1,6 @@
 'use client';
 
-import { Icons } from '@/components/icons';
+import { Icons, Primitives } from '@/components/icons';
 import { Button } from '@/components/ui/button';
 import {
 	Card,
@@ -78,15 +78,15 @@ export function LoginFormDemo() {
 	};
 
 	return (
-		<Card className="min-w-[400px]">
+		<Card className="max-w-md mx-auto w-full shadow-none border-none">
 			<Form {...form}>
 				<form onSubmit={form.handleSubmit(onSubmit)}>
 					<CardHeader className="space-y-1">
-						<CardTitle className="text-2xl text-center">
+						<CardTitle className="text-4xl font-bold text-center mb-12">
 							Login
 						</CardTitle>
 					</CardHeader>
-					<CardContent className="grid gap-4">
+					<CardContent className="grid gap-6 pl-14 pr-6">
 						<div className="grid gap-2">
 							<FormField
 								control={form.control}
@@ -96,13 +96,13 @@ export function LoginFormDemo() {
 										<FormLabel>Email</FormLabel>
 										<FormControl>
 											<div className="relative">
-												<FiMail
-													className={`absolute inset-y-0 m-2.5`}
+												<Primitives.mail
+													className={`absolute -left-12 m-2.5 h-6 w-6`}
 												/>
 												<Input
 													placeholder="user@example.com"
 													{...field}
-													className="pl-9"
+													className=" py-5 outline-none border-none bg-secondary"
 												/>
 											</div>
 										</FormControl>
@@ -120,8 +120,8 @@ export function LoginFormDemo() {
 										<FormLabel>Password</FormLabel>
 										<FormControl>
 											<div className="relative">
-												<FiLock
-													className={`absolute inset-y-0 m-2.5`}
+												<Primitives.lock
+													className={`absolute -left-12 m-2.5 h-6 w-6`}
 												/>
 												<Input
 													type={
@@ -130,7 +130,7 @@ export function LoginFormDemo() {
 															: 'password'
 													}
 													{...field}
-													className="px-9"
+													className="pr-9 py-5 outline-none border-none bg-secondary"
 													placeholder="password"
 												/>
 												<button
@@ -140,13 +140,13 @@ export function LoginFormDemo() {
 															(ref) => !ref,
 														)
 													}
-													className="absolute inset-y-0 right-0 m-2.5"
+													className="absolute inset-y-0 right-0 m-2.5 h-5 w-5"
 												>
 													{isPassVisible ? (
 														<FiEyeOff />
-													) : (
+													) : field.value ? (
 														<FiEye />
-													)}
+													) : null}
 												</button>
 											</div>
 										</FormControl>
@@ -156,7 +156,7 @@ export function LoginFormDemo() {
 							/>
 						</div>
 
-						<div className="flex items-center justify-between">
+						<div className="my-3 flex items-center justify-between">
 							<div className="flex items-center space-x-2">
 								<Checkbox
 									id="rememberme"
@@ -179,14 +179,12 @@ export function LoginFormDemo() {
 								</Link>
 							</div>
 						</div>
-						<div className="grid gap-2">
-							<Button className="w-full" type="submit">
+						<div className="flex justify-center">
+							<Button className="w-44 p-5" type="submit">
 								Login
 							</Button>
 						</div>
-					</CardContent>
-					<CardFooter className="grid gap-4">
-						<div className="grid gap-6 text-center">
+						<div className=" text-center">
 							<Link
 								href={`/signup`}
 								className="text-xs text-blue-600 font-semibold"
@@ -194,6 +192,8 @@ export function LoginFormDemo() {
 								Create An Account
 							</Link>
 						</div>
+					</CardContent>
+					<CardFooter className="grid gap-4">
 						{/* <div className="relative">
 							<div className="absolute inset-0 flex items-center">
 								<span className="w-full border-t" />
