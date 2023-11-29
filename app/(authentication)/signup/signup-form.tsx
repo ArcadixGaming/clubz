@@ -1,6 +1,6 @@
 'use client';
 
-import { Icons } from '@/components/icons';
+import { Icons, Primitives, Images } from '@/components/icons';
 import { Button } from '@/components/ui/button';
 import {
 	Card,
@@ -32,6 +32,9 @@ import { FiEye, FiEyeOff, FiLock, FiMail, FiUser } from 'react-icons/fi';
 import Password from '../Fields';
 import { useState } from 'react';
 import { Router } from 'next/router';
+import { FcGoogle } from 'react-icons/fc';
+import { MdLock, MdMail, MdPerson } from 'react-icons/md';
+// import { Icons } from '@/components/icons';
 
 export const SignupFormSchema = z.object({
 	name: z.string().min(4, {
@@ -109,66 +112,34 @@ export function SignupFormDemo() {
 		}
 	};
 	return (
-		<Card className="min-w-[400px]">
+		<Card className="max-w-lg w-full mx-auto border-none shadow-none">
 			<Form {...form}>
 				<form onSubmit={form.handleSubmit(onSubmit)}>
 					<CardHeader className="space-y-1">
-						<CardTitle className="text-2xl">
-							Create an account
+						<CardTitle className="text-4xl font-bold text-center mb-12">
+							Create Account
 						</CardTitle>
-						<CardDescription>
+						{/* <CardDescription>
 							Enter your email below to create your account
-						</CardDescription>
+						</CardDescription> */}
 					</CardHeader>
-					<CardContent className="grid gap-4">
-						<div className="grid grid-cols-2 gap-6">
-							<Button
-								variant="outline"
-								onClick={() => {
-									signIn('google');
-								}}
-								type="button"
-								className="w-full"
-							>
-								<FaGoogle className="mr-2 h-4 w-4" />
-								Google
-							</Button>
-							<Button
-								variant="outline"
-								onClick={() => console.log('login with apple')}
-								type="button"
-								className="w-full"
-							>
-								<FaApple className="mr-2 h-4 w-4" />
-								Apple
-							</Button>
-						</div>
-						<div className="relative">
-							<div className="absolute inset-0 flex items-center">
-								<span className="w-full border-t" />
-							</div>
-							<div className="relative flex justify-center text-xs uppercase">
-								<span className="bg-background px-2 text-muted-foreground">
-									Or signup with
-								</span>
-							</div>
-						</div>
+					<CardContent className="pl-12 pr-6 grid gap-6">
 						<div className="grid gap-2">
 							<FormField
 								control={form.control}
 								name="name"
 								render={({ field }) => (
 									<FormItem>
-										<FormLabel>name</FormLabel>
+										<FormLabel>Name</FormLabel>
 										<FormControl>
 											<div className="relative">
-												<FiUser
-													className={`absolute inset-y-0 m-2.5`}
+												<Primitives.person
+													className={`absolute -left-12 top-0 m-2.5 h-6 w-6`}
 												/>
 												<Input
 													placeholder="name"
 													{...field}
-													className="pl-9"
+													className=" py-5 outline-none border-none bg-secondary"
 												/>
 											</div>
 										</FormControl>
@@ -186,13 +157,13 @@ export function SignupFormDemo() {
 										<FormLabel>Email</FormLabel>
 										<FormControl>
 											<div className="relative">
-												<FiMail
-													className={`absolute inset-y-0 m-2.5`}
+												<Primitives.mail
+													className={`absolute -left-12 m-2.5 h-6 w-6`}
 												/>
 												<Input
 													placeholder="user@example.com"
 													{...field}
-													className="pl-9"
+													className=" py-5 outline-none border-none bg-secondary"
 												/>
 											</div>
 										</FormControl>
@@ -213,8 +184,8 @@ export function SignupFormDemo() {
 										<FormLabel>Password</FormLabel>
 										<FormControl>
 											<div className="relative">
-												<FiLock
-													className={`absolute inset-y-0 m-2.5`}
+												<Primitives.lock
+													className={`absolute -left-12 m-2.5 h-6 w-6`}
 												/>
 												<Input
 													type={
@@ -223,7 +194,7 @@ export function SignupFormDemo() {
 															: 'password'
 													}
 													{...field}
-													className="px-9"
+													className="pr-9 py-5 outline-none border-none bg-secondary"
 													placeholder="password"
 												/>
 												<button
@@ -233,13 +204,13 @@ export function SignupFormDemo() {
 															(ref) => !ref,
 														)
 													}
-													className="absolute inset-y-0 right-0 m-2.5"
+													className="absolute inset-y-0 right-0 m-2.5 h-5 w-5"
 												>
 													{isPassVisible ? (
 														<FiEyeOff />
-													) : (
+													) : field.value ? (
 														<FiEye />
-													)}
+													) : null}
 												</button>
 											</div>
 										</FormControl>
@@ -248,8 +219,8 @@ export function SignupFormDemo() {
 								)}
 							/>
 						</div>
-						<div className="grid gap-2">
-							<div className="flex items-center space-x-2 justify-center text-xs">
+						<div className="my-3">
+							<div className="flex items-center space-x-2 justify-center text-sm">
 								<span>Already have an account?</span>
 								<Link
 									href={'/login'}
@@ -260,13 +231,43 @@ export function SignupFormDemo() {
 							</div>
 						</div>
 
-						<div className="grid gap-2">
-							<Button className="w-full" type="submit">
-								Create account
+						<div className="flex justify-center">
+							<Button className="w-44 p-5" type="submit">
+								Sign up
+							</Button>
+						</div>
+						<div className="relative my-3">
+							<div className="absolute inset-0 flex items-center">
+								<span className="w-full border-t border-foreground" />
+							</div>
+							<div className="relative flex justify-center text-xs uppercase">
+								<span className="bg-background px-2 text-foreground">
+									OR
+								</span>
+							</div>
+						</div>
+						<div className="flex items-center justify-center space-x-2 ">
+							<Button
+								variant="ghost"
+								onClick={() => {
+									signIn('google');
+								}}
+								type="button"
+								className="w-fit"
+							>
+								<FcGoogle className="h-6 w-6" />
+							</Button>
+							<Button
+								variant="ghost"
+								onClick={() => console.log('login with apple')}
+								type="button"
+								className="w-fit"
+							>
+								<FaApple className="h-6 w-6" />
 							</Button>
 						</div>
 					</CardContent>
-					<CardFooter className="grid gap-4"></CardFooter>
+					<CardFooter></CardFooter>
 				</form>
 			</Form>
 		</Card>

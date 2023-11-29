@@ -1,17 +1,20 @@
-import React from 'react';
-import { LoginFormDemo } from './login-form';
+import React from "react";
+import { LoginFormDemo } from "./login-form";
+import { Images } from "@/components/icons";
 
 const page = () => {
-	return (
-		<section className="flex-grow flex items-center">
-			<div className="grid grid-cols-2 gap-4 w-full justify-items-center">
-				<div>image goes here...</div>
-				<div>
-					<LoginFormDemo />
-				</div>
-			</div>
-		</section>
-	);
+  return (
+    <section className="flex flex-grow items-center rounded-lg p-0 sm:p-5 xl:m-28 xl:my-10 xl:border-secondary xl:p-0 xl:shadow-custom">
+      <div className="grid min-h-[775px] w-full grid-cols-1 place-items-center justify-items-center gap-4 lg:grid-cols-2">
+        <div className="w-full">
+          <LoginFormDemo />
+        </div>
+        <div className=" hidden h-full w-full items-center justify-center bg-secondary lg:flex">
+          <Images.login />
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default page;
