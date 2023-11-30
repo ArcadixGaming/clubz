@@ -18,7 +18,7 @@ export default async function Home() {
     console.log("no session found!");
     return (
       <div className="flex-grow">
-        <div className="relative min-h-screen w-full">
+        <div className="bg-design1 relative min-h-screen w-full bg-cover bg-bottom bg-no-repeat">
           {/* <Image src={bgImage} alt={"background image"} /> */}
 
           <div className="pl-72 pt-72">
@@ -41,7 +41,7 @@ export default async function Home() {
             </Button>
           </div>
         </div>
-        <div className="bg-aicon min-h-screen overflow-hidden bg-auto bg-left-bottom bg-no-repeat">
+        <div className="min-h-screen overflow-hidden bg-aicon bg-auto bg-left-bottom bg-no-repeat">
           <div className="relative my-20">
             <div className="clip-right absolute right-0 top-0 z-50 h-[600px] w-[450px] bg-zinc-900 text-white">
               <div className="ml-auto mr-3 mt-10 h-[375px] w-[350px] overflow-hidden p-3 text-right">
@@ -106,7 +106,7 @@ export default async function Home() {
             </div>
           </div>
         </div>
-        <div className="bg-cicon bg- relative min-h-screen space-y-40 bg-auto bg-right bg-no-repeat">
+        <div className="bg- relative min-h-screen space-y-40 bg-cicon bg-auto bg-right bg-no-repeat">
           <div className="">
             {/* <div className="absolute right-0 top-0 z-0">
               <Icons.OIcon />

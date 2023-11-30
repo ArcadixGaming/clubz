@@ -20,6 +20,10 @@ module.exports = {
         "footer-bg": "url('/assets/footer-bg.png') ",
         cicon: "url('/assets/CIcon.svg')",
         aicon: "url('/assets/AIcon.svg')",
+        design1: "url('/svg/design0.svg')",
+        loginDesign: "url('/svg/logindesign.svg')",
+        loginIllustration: "url('/svg/loginbg.svg')",
+        signupllustration: "url('/svg/signupbg.svg')",
       },
       colors: {
         border: "hsl(var(--border))",
