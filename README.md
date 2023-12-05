@@ -34,15 +34,6 @@ To get started with ClubZ, follow these steps:
 
 Make sure to set up your environment variables. The required variables can be found in the `.env.example` file. Create a new `.env` file and copy the variables from `.env.example`, updating them with your specific values.
 
-```dotenv
-# Example .env file
-
-DB_HOST=localhost
-DB_USER=my_database_user
-DB_PASSWORD=my_database_password
-API_KEY=your_api_key
-```
-
 ## Branching and Pushing Changes
 
 When working on ClubZ, follow these guidelines for branching and pushing changes:
