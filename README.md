@@ -25,7 +25,7 @@ To get started with ClubZ, follow these steps:
 3. **Checkout a specific branch:**
 
    ```bash
-   git checkout <branch_name> origin/<branch_name>
+   git checkout -b <branch_name> origin/<branch_name>
    ```
 
    Replace `<branch_name>` with the name of the branch you want to work on.
