@@ -5,7 +5,8 @@ import Image from "next/image";
 
 const page = () => {
   return (
-    <section className="flex h-full w-full flex-row items-center justify-center p-10 mt-8">
+    //Todo: Background image needs to be changed to actual figma design image
+    <section className="mt-8 flex h-full w-full flex-row items-center justify-center p-10">
       <div className="relative hidden h-full w-1/2 items-center justify-center md:flex">
         <Image
           src="/assets/Smart People 1.png"

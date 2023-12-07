@@ -12,6 +12,7 @@ const page = async () => {
   // 	redirect('/');
   // }
   return (
+    //Todo: Background image needs to be changed to actual figma design image
     <section className="flex h-full w-full flex-row items-center justify-center px-10 py-10">
       <div className="relative hidden md:flex h-full w-1/2 items-center justify-center">
         <Image
